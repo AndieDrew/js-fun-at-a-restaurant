@@ -10,7 +10,7 @@ var {
 
 describe("order.js", function() {
   describe("takeOrder", function() {
-    it.skip("should be a function", function() {
+    it("should be a function", function() {
       assert.isFunction(takeOrder);
     });
 
@@ -117,7 +117,7 @@ describe("order.js", function() {
       assert.equal(deliveryOrders.length, 3);
       assert.deepEqual(deliveryOrders, [order1, order2, order3]);
     });
-  }); 
+  });
 
   describe("refundOrder", function() {
     it.skip("should be a function", function () {
