@@ -1,33 +1,51 @@
+//on line 114-115 function takeOrder is invoked twice being passed 2 arguments each time.
+//object takes in order3, then order4 objects. Array takes in diliveryOrders array [order1, order2]
+//to satisfy test line 117-118 we need diliveryOrders array to have a length of 3 values and
+//the values to specifically be [order1, order2, order3]
 function takeOrder(object, array) {
+//if deliveryOrders length is less than 3 values
   if(array.length < 3){
+//take deliveryOrders and push whatever argument is passed into the object parameter
   array.push(object);
 }
-}
-
-
-function refundOrder(object, array){
-//if object arguement is 1, delete first item from deliveryOrders array
-if(object === 1){
-  array.shift(object);
 //otherwise do nothing
-} else //if(object === 2)(I realized i dont need this)
-{
-//delete order2
-//splice needs 2 values, index and amount of values to be removed
-  array.splice(1, 1);
-}// else {} (I realized i don't need this)
+}
+//this will take dilveryOrders [order1, order2] and push argument order3 (line 114) into the array
+//and ignore order4 argument from line 115
+
+
+
+//we need make deliveryOrders which is currently [order1, order2, order3](line 185)
+//have a array value length of 2(line 189), and them equal [order1, order3](line 190)
+//refundOrder function takes 2 arguments, an integer and the deliveryOrders array
+function refundOrder(num, array){
+if(num === 1){ //if parameter num arguement is 1(line 154)
+  array.shift(num); //delete first item from deliveryOrders array(order1)
+} else //otherwise
+  {
+    array.splice(1, 1);//splice out one value at index 1 of the dileveryOrders array
+  }
 }
 
 
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!EXPLAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-function listItems(list) {
-  var threeFoods = "";
+
+//declare function listItems with one parameter that accepts argument from line 225
+function listItems(list) { //list accepts diliveryOrders argument which is an array with 3 objects
+//to satisfy test on line 227 we need to put the item key of each order object into a string
+  var threeFoods = ""; //this variable threeFoods creates an empty string to store values inspect
+//declare for loop with variable i that initializes at index 0. if i is less than the length
+//of parameter list (deliveryOrders argument which is array with 3 objects) than iterate/increment
   for(var i = 0; i < list.length; i++){
-   threeFoods = threeFoods + list[i].item + ", ";
- } return threeFoods.slice(0, -2);
-}
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!EXPLAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//for each iteration, exicute the code below. Below we are assigning var threeFoods the value of
+//it's self + list iterations item key + string ", "
+   threeFoods = threeFoods + list[i].item + ", ";//output: "burger, blt sandwich, rueben, "
+//to satisfy test we need to delete the last 2 index values ", " from the string
+} return threeFoods.slice(0, -2);
+//to do this we return threeFoods with the last 2 parts of the string being spliced out
+}//output now matches the string on line 227
+
+
 
 
 //function SearchOrder has 2 paramtetrs, orders and food
@@ -45,6 +63,8 @@ function searchOrder(orders, food){
   }
 }
 
+
+//Original code for searchOrder below (Epic Fail)
 //   for(var i = 0; i < orders.length; i++)  {
 //     if(orders.item === "burger"){
 //       orders.item === true;
