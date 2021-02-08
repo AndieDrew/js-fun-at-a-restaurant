@@ -51,8 +51,20 @@ if(food.type === "breakfast" && !restaurant.menus.breakfast.includes(food)){
 //and dinner key equal to a array value that stores veggie pizza
 //then I need to output the string on line 171
 
-function removeMenuItem(place, string1, string2) {
+function removeMenuItem(restaurant, foodName, foodType) {
+//Step 1: remove bacon eggs pizza from breakfast
+if(foodType === "breakfast") {
+//make breakfast array empty
+var empty = [];
+foodType = empty;
+console.log(foodType);
+}
 
+//--take restaurant paramaters argument and check foodName & foodType's arguements
+//--check which menu
+//--if we get bacon and eggs pizza, and/or breakfast, splice it out
+
+//Step 2:return "No one is eating our Bacon and Eggs Pizza - it has been removed from the breakfast menu!"
 }
 
 module.exports = {
